@@ -303,12 +303,44 @@ int main()
             }
             break;
         case 9:
-            int searchNum;
-            cout << endl
-                 << "Enter a number to see if it is contained within the tree: ";
-            cin >> searchNum;
-            cout << endl;
-            tree.search(searchNum);
+            if (isSorted == false)
+            {
+                char userYorN;
+                cout << endl
+                     << "The tree must be sorted before searching for a value." << endl
+                     << endl
+                     << "Sort now? ('Y' for 'yes', 'N' for 'no'): ";
+                cin >> userYorN;
+                while (userYorN != 'Y' && userYorN != 'y' && userYorN != 'N' && userYorN != 'n')
+                {
+                    cout << "Make a valid selection: ";
+                    cin >> userYorN;
+                }
+                if (userYorN == 'Y' || userYorN == 'y')
+                {
+                    tree.sortBST(inOrderVals, start, end);
+                    isSorted = true;
+                    cout << endl
+                         << "The tree is now sorted." << endl;
+                    int searchNum;
+                    cout << endl
+                         << "Enter a number to see if it is contained within the tree: ";
+                    cin >> searchNum;
+                    cout << endl;
+                    tree.search(searchNum);
+                }
+                else
+                    break;
+            }
+            else
+            {
+                int searchNum;
+                cout << endl
+                     << "Enter a number to see if it is contained within the tree: ";
+                cin >> searchNum;
+                cout << endl;
+                tree.search(searchNum);
+            }
             break;
         }
         showMenu();
@@ -318,64 +350,6 @@ int main()
     cout << endl
          << "Thanks for checking out my AWESOME tree program!" << endl
          << endl;
-
-    // original code
-    // cout << "pre order:";
-    // tree.printPreOrder();
-    // cout << endl;
-
-    // cout << "in order: ";
-    // tree.printInOrder();
-    // cout << endl;
-
-    // cout << "post order: ";
-    // tree.printPostOrder();
-    // cout << endl;
-
-    // cout << "tree size is: " << tree.treeSize() << endl;
-
-    // tree.graphTree(0);
-    // cout << endl;
-
-    // vector<int> inOrderVals;
-    // tree.traverseInOrder(inOrderVals);
-
-    // int start = 0;
-    // int end = inOrderVals.size() - 1;
-
-    // quickSort(inOrderVals, start, end);
-
-    // tree.sortBST(inOrderVals, start, end);
-    // cout << "new pre order: ";
-    // tree.printPreOrder();
-    // cout << endl;
-    // tree.graphTree(0);
-    // cout << endl;
-
-    // tree.insert(50);
-    // tree.insert(53);
-    // tree.insert(56);
-    // tree.insert(59);
-    // tree.insert(62);
-    // tree.insert(65);
-    // tree.insert(68);
-    // tree.insert(71);
-    // tree.insert(74);
-    // tree.insert(77);
-    // tree.insert(47);
-
-    // tree.printPreOrder();
-    // cout << endl;
-    // tree.graphTree(0);
-    // cout << endl;
-
-    // tree.remove(68);
-    // tree.printPreOrder();
-    // cout << endl;
-    // tree.graphTree(0);
-    // cout << endl;
-
-    // tree.search(77);
 
     return 0;
 }
