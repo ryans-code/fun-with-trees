@@ -3,7 +3,7 @@
 A makefile is included for Linux users. Navigate to directory and run 'make' to auto-compile files, then run with './a.out'
 
 Note: when displaying the tree you will see a result similar to the following;  
-![image](https://user-images.githubusercontent.com/107592052/218586111-afb6b3c5-4c22-4bc7-8b31-e01bd77f678c.png)   
+![image](https://user-images.githubusercontent.com/107592052/218597272-0bc4f6db-090a-4426-b924-3b014e00cf60.png)    
 Be aware that the root is located on the left-most side of the console and children nodes extend toward the right side.
 <br />
 This is the same tree imaged above but with additional markup:  
